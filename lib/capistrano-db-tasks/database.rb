@@ -59,7 +59,7 @@ module Database
     private
 
     def pgpass
-      @config['password'] ? "PGPASSWORD='#{@config['password']}'" : ""
+      @config['password'] ? "PGPASSWORD=#{Shellwords.escape(@config['password'])}" : ""
     end
 
     def dump_cmd
